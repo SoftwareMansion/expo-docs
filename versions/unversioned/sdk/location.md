@@ -122,3 +122,45 @@ Suscribe to compass updates from the device
 Returns a subscription object, which has one field:
 
 - **remove (function)** — Call this function with no arguments to remove this subscription. The callback will no longer be called for location updates.
+
+### `Expo.Location.geocodeAsync(address)`
+
+Geocode an address string to latitiude-longitude location.
+
+#### Arguments
+
+- **address (_string_)** -- A string representing address, eg. 'Baker Street London'
+
+#### Returns
+
+Returns a geocoded location object with the following fields:
+
+-   **coords (_object_)** -- The coordinates of the position, with the following fields:
+    -   **latitude (_number_)** -- The latitude in degrees.
+    -   **longitude (_number_)** -- The longitude in degrees.
+    -   **altitude (_number_)** -- The altitude in meters above the WGS 84 reference ellipsoid.
+    -   **accuracy (_number_)** -- The radius of uncertainty for the location, measured in meters.
+    -   **altitudeAccuracy (_number_)** -- The accuracy of the altitude value, in meters (iOS only).
+    
+### `Expo.Location.reverseGeocodeAsync(location)`
+
+Reverse geocode a location to postal address.
+
+#### Arguments
+
+-   **location (_object_)** -- An object representing a location:
+
+    -   **latitude (_number_)** -- The latitude of location to reverse geocode, in degrees.
+    -   **longitude (_number_)** -- The longitude of location to reverse geocode, in degrees.
+
+
+#### Returns
+
+Returns an address with following fields:
+
+-   **city (_string_)** -- City name of the address.
+-   **street (_string_)** -- Street name of the address.
+-   **region (_string_)** -- Region/area name of the address.
+-   **postalCode (_string_)** -- Postal code of the address.
+-   **country (_string_)** -- Localized country name of the address.
+-   **name (_string_)** -- Place name of the address, for example, "Tower Bridge".
